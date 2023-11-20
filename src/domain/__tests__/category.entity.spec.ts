@@ -81,7 +81,15 @@ describe("Category Entity Unit Tests", () => {
       });
   });
 
-  describe('Change Name tests',() => {});
+  describe('Change Name tests',() => {
+    it("should change the name of a category", () => {
+      const category = Category.create({
+        name: "Movie",
+      });
+      category.name = "Movie 2";
+      expect(category.name).toBe("Movie 2");
+    });
+  });
 
   describe('Change Description tests',() => {});
 
