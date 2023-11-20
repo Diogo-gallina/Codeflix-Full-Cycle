@@ -4,7 +4,7 @@ describe("Category Entity Unit Tests", () => {
 
   describe("Constructor tests", () => {
 
-    it("Instance category someone with name", () => {
+    it("instance category someone with name", () => {
       const category = new Category({
         name: "Movie",
       });
@@ -15,7 +15,7 @@ describe("Category Entity Unit Tests", () => {
       expect(category.created_at).toBeInstanceOf(Date);
     });
 
-    it("Instance category with all data", () => {
+    it("instance category with all data", () => {
       const category = new Category({
         name: "Movie",
         description: "Movie description",
@@ -29,7 +29,7 @@ describe("Category Entity Unit Tests", () => {
       expect(category.created_at).toBeInstanceOf(Date);
     });
 
-    it("Instance category with name and description", () => {
+    it("instance category with name and description", () => {
       const category = new Category({
         name: "Movie",
         description: "Movie description",
@@ -40,6 +40,52 @@ describe("Category Entity Unit Tests", () => {
       expect(category.is_active).toBeTruthy();
       expect(category.created_at).toBeInstanceOf(Date);
     });
-    
+
   });
+
+  describe('Create tests' ,() => {
+    it("should create a category with name", () => {
+        const category = Category.create({
+          name: "Movie",
+        });
+        expect(category.category_id).toBeUndefined();
+        expect(category.name).toBe("Movie");
+        expect(category.description).toBeNull();
+        expect(category.is_active).toBeTruthy();
+        expect(category.created_at).toBeInstanceOf(Date);
+      });
+  
+      it("should create a category with all data", () => {
+        const category = Category.create({
+          name: "Movie",
+          description: "Movie description",
+          is_active: false,
+        });
+        expect(category.category_id).toBeUndefined();
+        expect(category.name).toBe("Movie");
+        expect(category.description).toBe("Movie description");
+        expect(category.is_active).toBeFalsy();
+        expect(category.created_at).toBeInstanceOf(Date);
+      });
+  
+      it("should create a category with name and description", () => {
+        const category = Category.create({
+          name: "Movie",
+          description: "Movie description",
+        });
+        expect(category.category_id).toBeUndefined();
+        expect(category.name).toBe("Movie");
+        expect(category.description).toBe("Movie description");
+        expect(category.is_active).toBeTruthy();
+        expect(category.created_at).toBeInstanceOf(Date);
+      });
+  });
+
+  describe('Change Name tests',() => {});
+
+  describe('Change Description tests',() => {});
+
+  describe('Activate tests',() => {});
+
+  describe('Deactivate tests',() => {});
 });
