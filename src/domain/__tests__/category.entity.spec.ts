@@ -91,7 +91,15 @@ describe("Category Entity Unit Tests", () => {
     });
   });
 
-  describe('Change Description tests',() => {});
+  describe('Change Description tests',() => {
+    it("should change the description of a category", () => {
+      const category = Category.create({
+        name: "Movie",
+      });
+      category.description = "Movie description 2";
+      expect(category.description).toBe("Movie description 2");
+    });
+  });
 
   describe('Activate tests',() => {});
 
