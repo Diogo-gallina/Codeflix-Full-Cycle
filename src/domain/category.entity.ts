@@ -1,6 +1,3 @@
-import { thisExpression } from "@babel/types";
-import { randomUUID } from "crypto";
-
 export type CategoryConstructorProps = {
   category_id?: string;
   name: string;
